@@ -1,9 +1,4 @@
 <?php
-//type of question: greetings/weather/world affairs
-/*$full_uri=$_SERVER['REQUEST_URI'];
-$uri_parts=explode('?', $full_uri,2);
-$type=$uri_parts['0'];
-echo $type;//end of */
 
 //getting the question from param : hello
 $ques=$_GET["q"];
@@ -34,7 +29,10 @@ $greet_msg=$str_arr['0'];
 		$reply="Hello, Kitty!"."I don't understand what you want to say,but,I am very happy to meet you!";
 	}
 
-
+	//now Make JSON response and show
+	$data = array('answer'=>$reply);
+	header('Content-Type: application/json');
+	echo json_encode($data);
 
 
 
